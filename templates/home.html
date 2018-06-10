@@ -4,30 +4,35 @@
 
 {% block content %}
 {{ block.super }}
-    <h1>Sacco</h1>
-
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Sacco</th>
-          <th>Messages</th>
-          <th>Issues</th>
-          <th>Last Post</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for sacco in saccos %}
-          <tr>
-            <td>
-              {{ sacco.name }}<br>
-              <small style="color: #888">{{ sacco.description }}</small>
-            </td>
-            <td>0</td>
-            <td>0</td>
-            <td>None</td>
-          </tr>
-        {% endfor %}
-      </tbody>
+<div class="container">
+     <ol class="breadcrumb my-4">
+       <li class="breadcrumb-item active">Saccos</li>
+     </ol>
+     <table class="table">
+       <thead class="thead-inverse">
+         <tr>
+           <th>Sacco</th>
+           <th>Messages</th>
+           <th>Issues</th>
+           <th>Vehicles</th>
+         </tr>
+       </thead>
+       <tbody>
+         {% for sacco in saccos %}
+           <tr>
+             <td>
+               {{ sacco.name }}
+               <small class="text-muted d-block">{{ sacco.description }}</small>
+             </td>
+             <td class="align-middle">0</td>
+             <td class="align-middle">0</td>
+             <td class="align-middle">4</td>
+             <td></td>
+           </tr>
+         {% endfor %}
+       </tbody>
+     </table>
+   </div>
     </table>
 
 
