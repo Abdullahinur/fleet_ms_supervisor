@@ -4,7 +4,7 @@ from django.urls import resolve
 
 # Create your tests here.
 from .models import Sacco
-from .views import home
+from .views import home, sacco
 
 
 class HomeTests(TestCase):
@@ -19,15 +19,21 @@ class HomeTests(TestCase):
         self.assertEquals(view.func, home)
 
 
-# class SaccoTestClass(TestCase):
-#
-#     # Set up method
-#     def setUp(self):
-#         self.sacco = Sacco(name='test sacco', description='test descriptions')
-#
-#     # Testing  instance
-#     def test_instance(self):
-#         self.assertTrue(isinstance(self.sacco, Sacco))
-#
-#     def tearDown(self):
-#         self.sacco.delete()
+class SaccoTestClass(TestCase):
+    def setUp(self):
+        Sacco.objects.create(id='1', name='test sacco',
+                             description='test description', sacco_logo='test.png')
+
+    def test_sacco_view_success_status_code(self):
+        url = reverse('sacco', kwargs={'pk': 1})
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+
+    def test_sacco_view_not_found_status_code(self):
+        url = reverse('sacco', kwargs={'pk': 99})
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 404)
+
+    def test_sacco_url_resolves_sacco_view(self):
+        view = resolve('/saccos/1/')
+        self.assertEquals(view.func, sacco)

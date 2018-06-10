@@ -13,9 +13,9 @@
          <tr>
            <th>Sacco</th>
            <th>Logo</th>
-           <th>Messages</th>
+           <th>ID</th>
            <th>Issues</th>
-           <th>Vehicles</th>
+
          </tr>
        </thead>
        <tbody>
@@ -25,10 +25,10 @@
                {{ sacco.name }}
                <small class="text-muted d-block">{{ sacco.description }}</small>
              </td>
-             <td class="align-middle"><img style="height: 50px; width: 50px;" src="{{ sacco.sacco_logo.url }}" alt=""></td>
+             <td class="align-middle"><img class="img-responsive" style="height: 50px; width: 50px;" src="{{ sacco.sacco_logo.url }}" alt=""></td>
+             <td class="align-middle">{{ sacco.id }}</td>
              <td class="align-middle">0</td>
-             <td class="align-middle">0</td>
-             <td class="align-middle">4</td>
+
              <td></td>
            </tr>
          {% endfor %}
@@ -50,7 +50,7 @@
                <th>Supervisor</th>
                <th>Avatar</th>
                <th>Messages</th>
-               <th>Issues</th>
+               <th>Id</th>
                <th>Vehicles</th>
              </tr>
            </thead>
@@ -61,9 +61,9 @@
                    {{ supervisor.first_name }}/{{ supervisor.last_name }}
                    <small class="text-muted d-block">{{ supervisor.sacco_base }}</small>
                  </td>
-                 <td class="align-middle"><img style="height: 50px; width: 50px;" src="{{ supervisor.profile_picture.url }}" alt=""></td>
+                 <td class="align-middle"><img class="img-responsive" style="height: 50px; width: 50px;" src="{{ supervisor.profile_picture.url }}" alt=""></td>
                  <td class="align-middle">0</td>
-                 <td class="align-middle">0</td>
+                 <td class="align-middle">{{ supervisor.id_number }}</td>
                  <td class="align-middle">4</td>
                  <td></td>
                </tr>

@@ -6,7 +6,7 @@ from . import views
 
 urlpatterns = [
     url('^$', views.home, name='home'),
-    url(r'^saccos/(?P<pk>\d+)/$', views.sacco, name='sacco')
+    url(r'^saccos/(?P<pk>\d+)/$', views.sacco, name='sacco'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
