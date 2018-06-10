@@ -12,6 +12,7 @@
        <thead class="thead-inverse">
          <tr>
            <th>Sacco</th>
+           <th>Logo</th>
            <th>Messages</th>
            <th>Issues</th>
            <th>Vehicles</th>
@@ -24,6 +25,7 @@
                {{ sacco.name }}
                <small class="text-muted d-block">{{ sacco.description }}</small>
              </td>
+             <td class="align-middle"><img style="height: 50px; width: 50px;" src="{{ sacco.sacco_logo.url }}" alt=""></td>
              <td class="align-middle">0</td>
              <td class="align-middle">0</td>
              <td class="align-middle">4</td>
@@ -34,6 +36,42 @@
      </table>
    </div>
     </table>
+
+
+    {# SUPERVISOR LIST #}
+
+    <div class="container">
+         <ol class="breadcrumb my-4">
+           <li class="breadcrumb-item active">Supervisors</li>
+         </ol>
+         <table class="table">
+           <thead class="thead-inverse">
+             <tr>
+               <th>Supervisor</th>
+               <th>Avatar</th>
+               <th>Messages</th>
+               <th>Issues</th>
+               <th>Vehicles</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for supervisor in supervisors %}
+               <tr>
+                 <td>
+                   {{ supervisor.first_name }}/{{ supervisor.last_name }}
+                   <small class="text-muted d-block">{{ supervisor.sacco_base }}</small>
+                 </td>
+                 <td class="align-middle"><img style="height: 50px; width: 50px;" src="{{ supervisor.profile_picture.url }}" alt=""></td>
+                 <td class="align-middle">0</td>
+                 <td class="align-middle">0</td>
+                 <td class="align-middle">4</td>
+                 <td></td>
+               </tr>
+             {% endfor %}
+           </tbody>
+         </table>
+       </div>
+        </table>
 
 
 

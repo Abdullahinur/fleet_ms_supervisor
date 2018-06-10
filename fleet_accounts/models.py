@@ -7,7 +7,7 @@ from django.db import models
 class Sacco(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30, unique=True)
-    description = models.CharField(max_length=30, unique=True)
+    description = models.CharField(max_length=200, unique=True)
     sacco_logo = models.ImageField(
         upload_to='profile_pictures/sacco_logo', default='/static/img/logo-placeholder.jpg')
 
