@@ -1,3 +1,5 @@
+import datetime as dt
+
 from django.shortcuts import render
 
 from .models import Sacco
@@ -7,4 +9,5 @@ from .models import Sacco
 
 def home(request):
     sacco_list = Sacco.objects.all()
-    return render(request, 'home.html', {"saccos": sacco_list})
+    date = dt.date.today()
+    return render(request, 'home.html', {"saccos": sacco_list, "date": date})
